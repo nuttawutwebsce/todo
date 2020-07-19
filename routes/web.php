@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,13 @@ Route::get('/','HomeController@index');
  Route::get('/create','HomeController@create');
  Route::post('/store','HomeController@store');
  Route::get('/delete/{id}', 'HomeController@delete' );
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+ Route::get("/logout",Function() {
+     Auth::logout();
+     return redirect("/login");
+ }  )
 
 
